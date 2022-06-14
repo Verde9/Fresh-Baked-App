@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="card">
+      <div id="image">
+        <img src="" alt="pizza" />
+      </div>
+      <div id="quantity">
+        <button id="subtract">-</button>
+        <!-- <input type="text" name="count" id="count"> -->
+        <p id="count"></p>
+        <button id="add">+</button>
+        <h3>Quantity</h3>
+      </div>
+      <div id="size">
+        <div>
+          <input type="radio" name="pizzaSize" value="Small" />
+          <p>Small</p>
+        </div>
+        <div>
+          <input type="radio" name="pizzaSize" value="Medium" />
+          <p>Medium</p>
+        </div>
+        <div>
+          <input type="radio" name="pizzaSize" value="Large" />
+          <p>Large</p>
+        </div>
+      </div>
+      <div id="crust">
+        <div>
+          <input type="radio" name="pizzaCrust" value="Hand Tossed" />
+          <p>Hand Tossed</p>
+        </div>
+        <div>
+          <input type="radio" name="pizzaCrust" value="Thin" />
+          <p>Pan</p>
+        </div>
+      </div>
+      <div id="sauce">
+        <div>
+          <input type="radio" name="pizzaSauce" value="red sauce" />
+          <p>Red Sauce</p>
+        </div>
+        <div>
+          <input type="radio" name="pizzaSauce" value="white sauce" />
+          <p>White Sauce</p>
+        </div>
+      </div>
+      <div id="ingediants">
+        <div class="item">
+          <label for="steak">Steak</label>
+          <input id="steak" type="checkbox" value="Steak" />
+        </div>
+        <div class="item">
+          <label for="sauage">Sauage</label>
+          <input id="sauage" type="checkbox" value="Sauage" />
+        </div>
+        <div class="item">
+          <label for="mushrooms">Mushrooms</label>
+          <input id="mushrooms" type="checkbox" value="Mushrooms" />
+        </div>
+        <div class="item">
+          <label for="black Olives">Black Olives</label>
+          <input id="black Olives" type="checkbox" value="Black Olives" />
+        </div>
+      </div>
+
+      <div>
+        <button id="cartButton">Add to cart</button>
+      </div>
+    </div>
+    <script src="./createPizzaScript.js"></script>
+  </body>
+</html>
