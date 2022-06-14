@@ -1,0 +1,48 @@
+body {
+    background-color: #F8ECD1;
+    text-align: center;
+}
+
+#top_div {
+    width: 100vw;
+    height: 10vh;
+    text-align: center;
+}
+
+#phone_number {
+    padding-top: 25px;
+    font-size: medium;
+}
+
+#pizza_guy_div {
+    width: 100vw;
+    text-align: center;
+    
+}
+
+#pizza_guy {
+    padding-top: 50px;
+    padding-left: 50px;
+    height: auto;
+    width: 40%;
+}
+
+#pizza_creation_button {
+    margin-top: 10px;
+    font-family: myFirstFont;
+    height: auto;
+    width: 40%;
+}
+
+@font-face {
+    font-family: myFirstFont;
+    src: url(./Press_Start_2P/PressStart2P-Regular.ttf);
+}
+
+#fresh_baked {
+    font-size: 100px;
+}
+
+h1 {
+    font-family: myFirstFont;
+}
