@@ -6,5 +6,5 @@ document
   });
 
 function createPizza() {
-  console.log("Creating pizza");
+  window.location.replace("./client/createPizza.html");
 }

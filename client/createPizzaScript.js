@@ -1,6 +1,6 @@
 let count = 1;
 let pizza = {
-  ingrediants: [],
+  ingredients: [],
 };
 let displayCount = document.getElementById("count");
 displayCount.innerText = count;
@@ -71,6 +71,12 @@ var ingElement = document.getElementById("ingredients");
 var checkBoxes = ingElement.querySelectorAll('input[type="checkbox"]');
 document.getElementById("cartButton").addEventListener("click", getData);
 
+document.getElementById("goBack").addEventListener("click", function (e) {
+  e.preventDefault();
+
+  window.location.replace("../index.html");
+});
+
 let result = [];
 
 function getData() {
@@ -80,7 +86,7 @@ function getData() {
       let data = {
         item: item.value,
       };
-      pizza.ingrediants.push(data);
+      pizza.ingredients.push(data);
     }
   });
 }

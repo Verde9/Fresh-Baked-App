@@ -4,13 +4,20 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../style.css" />
     <title>Document</title>
     <link rel="stylesheet" href="./button.css" />
   </head>
-  <body>
+  <body id="create_pizza_body">
     <div id="card">
-      <div id="image">
-        <img src="" alt="pizza" />
+      <div id="pizza_creation_image">
+        <img src="../Images/pizza creation.svg" alt="pizza" />
       </div>
       <div class="one">
         <button id="subtract">-</button>
@@ -21,9 +28,6 @@
           <h3 id="price">$100.00<h3>
         </div>
       </div>
-
-
-      
       <h1>Size</h1>
       <div class="size">
         <div class="one">
@@ -101,9 +105,15 @@
         </div>
       </div>
     </div>
-    <div id="cartBtnDiv">
-      <button id="cartButton">Add to cart</button>
+    <div>
+      <button id="goBack" class="btn btn-dark">Go Back</button>
+      <button id="cartButton" class="btn btn-dark">Add to cart</button>
     </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
     <script src="./createPizzaScript.js"></script>
   </body>
 </html>
