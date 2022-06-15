@@ -1,6 +1,6 @@
 body {
     background-color: #F8ECD1;
-    text-align: center;
+    font-family: myFirstFont;
 }
 
 #top_div {
@@ -43,6 +43,84 @@ body {
     font-size: 100px;
 }
 
-h1 {
+#contact_info_label {
     font-family: myFirstFont;
+    text-align: center;
+    font-size:medium;
+}
+
+#pay_label {
+    text-align: center;
+    font-size:medium;
+    font-family: myFirstFont;
+}
+
+
+#editOrder_btn{
+    position: relative;
+    left: 1800px;
+    top: -35px;
+}
+h4{
+    font-size: larger;
+    font-family: myFirstFont;
+}
+input{
+    border: none;
+    appearance: none;
+    background: #f2f2f2;
+    padding: 12px;
+    border-radius: 3px;
+    width: 300px;
+    outline: none;
+    position: relative;
+    left: 300px;
+    top: -50px;
+    font-family: myFirstFont;
+}
+#checkoutBtn{
+    text-align: center;
+}
+#goBack_btn{
+    width: 200px;
+    height: 50px;
+}
+#order_btn{
+    width: 200px;
+    height: 50px;
+}
+#container{
+    position: relative;
+    top: 400px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+h3{
+    position: relative;
+    top: -50px;
+    font-family: myFirstFont;
+    text-align: center;
+    
+    
+}
+#text{
+    position: relative;
+    top: 8px;
+    color: Black;
+    font-size: large;
+    font-weight: 500;
+    font-family: myFirstFont;
+}
+.progress{
+    height: 9vh;
+}
+
+#top_ban{
+    text-align: center;
+}
+
+
+@font-face {
+    font-family: myFirstFont;
+    src: url(./Press_Start_2P/PressStart2P-Regular.ttf);
 }

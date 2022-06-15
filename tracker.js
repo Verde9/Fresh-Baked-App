@@ -5,8 +5,7 @@ let width = 1;
 let i = 0;
 
 //havee to bring value of the order number from database
-document.getElementById("h1_order").innerText =
-  "Order Confirmation " + "Number: ";
+document.getElementById("h1_order").innerText = "Number: ";
 console.log("hola");
 
 moveBar();
