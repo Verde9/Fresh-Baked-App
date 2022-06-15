@@ -1,11 +1,17 @@
 body {
     background-color: #F8ECD1;
-    font-family: myFirstFont;
 }
+
+#create_pizza_body{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
 
 #top_div {
     width: 100vw;
-    height: 10vh;
+    height: 5vh;
     text-align: center;
 }
 
@@ -15,23 +21,101 @@ body {
 }
 
 #pizza_guy_div {
-    width: 100vw;
     text-align: center;
+    height: 70vh;
     
 }
 
 #pizza_guy {
-    padding-top: 50px;
-    padding-left: 50px;
+    padding-top: 20vh;
     height: auto;
-    width: 40%;
+    width: 70%;
 }
 
 #pizza_creation_button {
     margin-top: 10px;
+    font-size: x-large;
     font-family: myFirstFont;
     height: auto;
-    width: 40%;
+    width: 30%;
+    bottom: 60vh;
+    
+}
+
+#pizza_creation_image{
+    margin-top: 50px;
+    margin-bottom: 150px;
+
+}
+
+#quantity{
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+}
+
+#add{
+    margin-left: 30px;
+    height: 40%;
+    width: 10%;
+}
+
+#subtract{
+    margin-right: 30px;
+    height: 40%;
+    width: 10%;
+}
+
+#count{
+   padding-top: 5px; 
+}
+
+#size{
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#crust{
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#sauce{
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    margin-top: 50px;
+    margin-bottom: 50px; 
+}
+
+#ingredients{
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#goBack{
+    margin-right: 30px;
+    margin-bottom: 25px;
+    height: 40%;
+    width: 20%;
+}
+
+#cartButton{
+    margin-left: 30px;
+    margin-bottom: 25px;
 }
 
 @font-face {
@@ -119,8 +203,26 @@ h3{
     text-align: center;
 }
 
-
-@font-face {
+h1 {
     font-family: myFirstFont;
-    src: url(./Press_Start_2P/PressStart2P-Regular.ttf);
+}
+
+h2 {
+    font-family: myFirstFont;
+}
+
+h3 {
+    font-family: myFirstFont;
+}
+
+p {
+    font-family: myFirstFont;
+}
+
+label {
+    font-family: myFirstFont;
+}
+
+.btn {
+    font-family: myFirstFont;
 }

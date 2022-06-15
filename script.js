@@ -5,5 +5,5 @@ document.getElementById("pizza_creation_button").addEventListener("click", funct
 
 
 function createPizza() {
-    console.log("Creating pizza");
+    window.location.replace("./client/createPizza.html")
 }
