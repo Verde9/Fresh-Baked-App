@@ -3,6 +3,7 @@ let pizza = {
   ingrediants: [],
 };
 let displayCount = document.getElementById("count");
+displayCount.innerText = count;
 let subtract = document
   .getElementById("subtract")
   .addEventListener("click", handleSubtract);
@@ -12,16 +13,18 @@ document.getElementById("add").addEventListener("click", handleAdd);
 function handleSubtract() {
   if (count < 1) return;
   count = count -= 1;
-  handleCount();
+  handleCount(count);
+  handlePrice(count);
 }
 
 function handleAdd() {
   count = count += 1;
-  handleCount();
+  handleCount(count);
+  handlePrice(count);
 }
 
-function handleCount() {
-  displayCount.innerText = count;
+function handleCount(myCount) {
+  displayCount.innerText = myCount;
   pizza.count = count;
 }
 
@@ -64,22 +67,28 @@ sauceBtn.forEach((radioBtn) => {
 // findSelected()
 //********************************************************************************************
 
-var ingElement = document.getElementById("ingediants");
+var ingElement = document.getElementById("ingredients");
 var checkBoxes = ingElement.querySelectorAll('input[type="checkbox"]');
 document.getElementById("cartButton").addEventListener("click", getData);
 
 let result = [];
 
 function getData() {
-  
   result = [];
   checkBoxes.forEach((item) => {
     if (item.checked) {
       let data = {
         item: item.value,
       };
-      pizza.ingrediants.push(data)
+      pizza.ingrediants.push(data);
     }
   });
 }
 
+const price = 9.98;
+let pizzaPrice = document.getElementById("price");
+
+function handlePrice(cnt) {
+  let myPrice = cnt * price;
+  pizzaPrice.innerText = myPrice.toFixed(2);
+}

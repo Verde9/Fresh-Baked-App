@@ -5,75 +5,104 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="./button.css" />
   </head>
   <body>
     <div id="card">
       <div id="image">
         <img src="" alt="pizza" />
       </div>
-      <div id="quantity">
+      <div class="one">
         <button id="subtract">-</button>
-        <!-- <input type="text" name="count" id="count"> -->
         <p id="count"></p>
         <button id="add">+</button>
-        <h3>Quantity</h3>
+        <div id="mathDisplay">
+          <!-- <h3 id="quantity">Qty</h3> -->
+          <h3 id="price">$100.00<h3>
+        </div>
       </div>
-      <div id="size">
-        <div>
+
+
+      
+      <h1>Size</h1>
+      <div class="size">
+        <div class="one">
           <input type="radio" name="pizzaSize" value="Small" />
           <p>Small</p>
         </div>
-        <div>
+        <div class="one">
           <input type="radio" name="pizzaSize" value="Medium" />
           <p>Medium</p>
         </div>
-        <div>
+        <div class="one">
           <input type="radio" name="pizzaSize" value="Large" />
           <p>Large</p>
         </div>
       </div>
+      <h1>Crust</h1>
       <div id="crust">
-        <div>
+        <div class="one">
           <input type="radio" name="pizzaCrust" value="Hand Tossed" />
           <p>Hand Tossed</p>
         </div>
-        <div>
+        <div class="one">
           <input type="radio" name="pizzaCrust" value="Thin" />
           <p>Pan</p>
         </div>
       </div>
+      <h1>Sauce</h1>
       <div id="sauce">
-        <div>
+        <div class="one">
           <input type="radio" name="pizzaSauce" value="red sauce" />
           <p>Red Sauce</p>
         </div>
-        <div>
+        <div class="one">
           <input type="radio" name="pizzaSauce" value="white sauce" />
           <p>White Sauce</p>
         </div>
       </div>
-      <div id="ingediants">
+      <h1>Ingredients</h1>
+      <div id="ingredients">
         <div class="item">
-          <label for="steak">Steak</label>
           <input id="steak" type="checkbox" value="Steak" />
+          <label for="steak">Steak</label>
         </div>
         <div class="item">
-          <label for="sauage">Sauage</label>
           <input id="sauage" type="checkbox" value="Sauage" />
+          <label for="sauage">Sauage</label>
         </div>
         <div class="item">
-          <label for="mushrooms">Mushrooms</label>
           <input id="mushrooms" type="checkbox" value="Mushrooms" />
+          <label for="mushrooms">Mushrooms</label>
         </div>
         <div class="item">
+          <input id="black Olives" type="checkbox" value="Black_Olives" />
           <label for="black Olives">Black Olives</label>
-          <input id="black Olives" type="checkbox" value="Black Olives" />
+        </div>
+        <div class="item">
+          <input id="pineapple" type="checkbox" value="Pineapple" />
+          <label for="pineapple">Pineapple</label>
+        </div>
+        <div class="item">
+          <input id="grond beef" type="checkbox" value="Ground_Beef" />
+          <label for="grond beef">Ground Beef</label>
+        </div>
+        <div class="item">
+          <input id="tomatoes" type="checkbox" value="Tomatoes" />
+          <label for="tomatoes">Tomatoes</label>
+        </div>
+        <div class="item">
+          <input
+            id="jalapeno peppers"
+            type="checkbox"
+            value="Jalapeno_Peppers"
+          />
+          <label for="jalapeno peppers">Jalapeno Peppers</label>
         </div>
       </div>
-
-      <div>
-        <button id="cartButton">Add to cart</button>
-      </div>
+    </div>
+    <div id="cartBtnDiv">
+      <button id="cartButton">Add to cart</button>
     </div>
     <script src="./createPizzaScript.js"></script>
   </body>
