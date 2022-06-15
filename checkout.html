@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout</title>
+  </head>
+  <body>
+    <div>
+      <p id="on"></p>
+      <button id="editOrder_btn">Edit Order</button>
+    </div>
+    <section>
+      <main>
+        <h1>Contact and Delivery Information</h1>
+      </main>
+      <div>
+        <section>
+          <form id="userInformation">
+            <h4>Adress:</h4>
+            <div>
+              <input
+                type="text"
+                name=""
+                id="Adress1"
+                placeholder="building/house number, street name, apatment number and city"
+                required
+              /><br />
+              <input
+                type="text"
+                name=""
+                id="Adress2"
+                placeholder="city, state and zip code"
+              />
+            </div>
+            <h4>Names:</h4>
+            <input
+              type="text"
+              name=""
+              id="Name"
+              placeholder="Enter your name"
+              required
+            />
+            <h4>Phone Number:</h4>
+            <input
+              type="tel"
+              name=""
+              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+              id="phoneNumber"
+              placeholder="Enter your phone number"
+              required
+            />
+            <h4>Email:</h4>
+            <input
+              type="email"
+              name=""
+              id="Email"
+              placeholder="Enter your email adress"
+            />
+          </form>
+        </section>
+      </div>
+      <div>
+        <section>
+          <main>
+            <h1>Payment Information</h1>
+          </main>
+          <form id="paymentInformation">
+            <h4>Card Number:</h4>
+            <input
+              type="text"
+              name=""
+              id="cardNumber"
+              placeholder="Enter Card Number"
+              pattern="[0-9\s]{13, 19}"
+              required
+            />
+            <h4>Card Name:</h4>
+            <input
+              type="text"
+              name=""
+              id="cardName"
+              placeholder="Enter Card Name"
+              required
+            />
+            <h4>Exp. Date</h4>
+            <input id="expdate" type="date" required />
+            <h4>CVV Code:</h4>
+            <input
+              type="numerical"
+              name=""
+              id="C_V_V"
+              maxlength="4"
+              pattern="[0-9]*"
+              placeholder="CVV Code"
+              required
+            />
+          </form>
+        </section>
+      </div>
+      <div id="totalPrice">
+        <h4>Delivery Fee:</h4>
+        <input type="numerical" id="Delivery_Fee" value="" readonly />
+        <h4>Total:</h4>
+        <input type="numerical" id="totall" value="" readonly />
+      </div>
+      <div id="checkoutBtn">
+        <button id="goBack_btn">Go Back</button>
+        <button id="order_btn">Order</button>
+      </div>
+    </section>
+    <script src="./checkout.js" type="module"></script>
+  </body>
+</html>
