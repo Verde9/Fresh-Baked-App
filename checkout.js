@@ -1,5 +1,6 @@
 //checkoutjs
 //order number with its function
+console.log("order");
 
 const order = Math.floor(Math.random() * 10000000);
 
