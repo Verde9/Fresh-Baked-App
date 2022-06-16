@@ -1,11 +1,59 @@
 body {
     background-color: #F8ECD1;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 #create_pizza_body{
     display: flex;
     text-align: center;
     justify-content: center;
+}
+
+#checkout_body{
+    font-family: myfirstfont;
+}
+
+#form-element{
+    margin-left: 75px;
+    margin-bottom: 50px;
+}
+
+#contact_info_label{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#pay_label{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#csz{
+    display: flex;
+    justify-content: space-between;
+    width: 1075px;
+}
+
+#expireMM{
+    font-size: 15px;
+}
+
+#expireYY{
+    font-size: 15px;
+}
+
+#C_V_V{
+    width: 100px;
+}
+
+#totalPrice{
+    margin-top: 50px;
+    margin-bottom: 25px;
+}
+
+input {
+    margin-bottom: 10px;
 }
 
 
@@ -30,16 +78,39 @@ body {
     padding-top: 20vh;
     height: auto;
     width: 70%;
+    animation: blink 0.3s;
+    animation-iteration-count: infinite;
 }
 
+#pizza_guy_2{
+    height: auto;
+    width: 50%;
+    animation: blink 0.3s;
+    animation-iteration-count: 3;
+}
+
+
+
 #pizza_creation_button {
-    margin-top: 10px;
+    margin-top: 100px;
     font-size: x-large;
     font-family: myFirstFont;
     height: auto;
     width: 30%;
     bottom: 60vh;
     
+}
+
+.btn-outline-dark:hover {
+    color: white;
+    background-color: #F24C4C;
+    border-color: #F24C4C;
+}
+
+.btn-dark:hover {
+    color: white;
+    background-color: #F24C4C;
+    border-color: #F24C4C; 
 }
 
 #pizza_creation_image{
@@ -84,8 +155,7 @@ body {
 
 #crust{
     display: flex;
-    justify-content: center;
-    justify-content: space-evenly;
+    flex-direction: column;
     margin-top: 50px;
     margin-bottom: 50px;
 }
@@ -94,14 +164,15 @@ body {
     display: flex;
     justify-content: center;
     justify-content: space-evenly;
+    
     margin-top: 50px;
     margin-bottom: 50px; 
 }
 
 #ingredients{
     display: flex;
-    justify-content: center;
-    justify-content: space-evenly;
+    flex-direction: column;
+    align-content: space-around;
     margin-top: 50px;
     margin-bottom: 50px;
 }
@@ -118,89 +189,35 @@ body {
     margin-bottom: 25px;
 }
 
+#hello_div{
+    display: flex;
+    white-space: nowrap;
+    width: 100;
+    animation: slide 60s linear infinite;
+    font-size: 50px;
+}
+
 @font-face {
     font-family: myFirstFont;
     src: url(./Press_Start_2P/PressStart2P-Regular.ttf);
 }
 
+@keyframes scroll {
+	0% { transform: translateX(0); }
+	100% { transform: translateX(calc(-250px * 7))}
+}
+
+@keyframes slide {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      transform: translate3d(-10000px, 0, 0); /* The image width */
+    }
+  }
+
 #fresh_baked {
     font-size: 100px;
-}
-
-#contact_info_label {
-    font-family: myFirstFont;
-    text-align: center;
-    font-size:medium;
-}
-
-#pay_label {
-    text-align: center;
-    font-size:medium;
-    font-family: myFirstFont;
-}
-
-
-#editOrder_btn{
-    position: relative;
-    left: 1800px;
-    top: -35px;
-}
-h4{
-    font-size: larger;
-    font-family: myFirstFont;
-}
-input{
-    border: none;
-    appearance: none;
-    background: #f2f2f2;
-    padding: 12px;
-    border-radius: 3px;
-    width: 300px;
-    outline: none;
-    position: relative;
-    left: 300px;
-    top: -50px;
-    font-family: myFirstFont;
-}
-#checkoutBtn{
-    text-align: center;
-}
-#goBack_btn{
-    width: 200px;
-    height: 50px;
-}
-#order_btn{
-    width: 200px;
-    height: 50px;
-}
-#container{
-    position: relative;
-    top: 400px;
-    margin-left: 100px;
-    margin-right: 100px;
-}
-h3{
-    position: relative;
-    top: -50px;
-    font-family: myFirstFont;
-    text-align: center;
-    
-    
-}
-#text{
-    position: relative;
-    top: 8px;
-    color: Black;
-    font-size: large;
-    font-weight: 500;
-    font-family: myFirstFont;
-}
-.progress{
-    height: 9vh;
-}
-
-#top_ban{
-    text-align: center;
 }
 
 h1 {
@@ -219,10 +236,40 @@ p {
     font-family: myFirstFont;
 }
 
+a{
+    font-family: myFirstFont; 
+}
+
+q{
+    font-family: myFirstFont;
+    
+}
+
 label {
     font-family: myFirstFont;
 }
 
+::-webkit-input-placeholder{
+    font-size: 10px;
+}
+
+.form-control{
+    width: 330px;
+
+}
+
 .btn {
     font-family: myFirstFont;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
