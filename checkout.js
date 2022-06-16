@@ -1,5 +1,25 @@
 //checkoutjs
 //order number with its function
+
+getOrder();
+var pizzaObj = {};
+function getOrder() {
+  fetch("http://localhost:3000/getOrder", {
+    method: "post",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      userId: sessionStorage.getItem("userId"),
+    }),
+  })
+    .then((res) => {
+      if (res.ok) return res.json();
+    })
+    .then((response) => {
+      pizzaObj.pizza = response;
+    });
+}
+console.log("pizzaObj", pizzaObj);
+
 const order = Math.floor(Math.random() * 10000000);
 //storing the Html p tag into a variable using its ID
 const orderNumberPara = document.getElementById("on");
@@ -15,7 +35,9 @@ goBack.addEventListener("click", function (e) {
 
   window.location.replace("./client/createPizza.html");
 });
+
 // order btn calling its function
+
 const orderBtn = document.getElementById("order_btn");
 orderBtn.addEventListener("click", orderPage);
 //function utilize for edit and go back"it will take yout to the previus page"

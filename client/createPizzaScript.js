@@ -1,45 +1,24 @@
 let count = 1;
 
 let pizza = {
+  myUserId: sessionStorage.getItem("userId"),
   ingredients: [],
 };
-// let displayCount = document.getElementById("count");
-// let subtract = document
-//   .getElementById("subtract")
-//   .addEventListener("click", handleSubtract);
-
-// document.getElementById("add").addEventListener("click", handleAdd);
-
-// function handleSubtract() {
-//   if (count < 1) return;
-//   count = count -= 1;
-//   handleCount();
-// }
-
-// function handleAdd() {
-//   count = count += 1;
-//   handleCount();
-//   pizza.price = price * count
-// }
-
-// function handleCount() {
-//   displayCount.innerText = count;
-//   pizza.count = count;
-// }
+pizza.myUserId = sessionStorage.getItem("userId");
 
 let pizzBtn = document.querySelectorAll("input[name='pizzaSize']");
 
 let selected = "";
 let findSelected = () => {
   selected = document.querySelector("input[name=pizzaSize]:checked").value;
-  if(selected == "Small") {
-    pizza.price = 12.99
+  if (selected == "Small") {
+    pizza.price = 12.99;
     pizza.size = selected;
-  } else if(selected == 'Medium') {
-    pizza.price = 15.99
+  } else if (selected == "Medium") {
+    pizza.price = 15.99;
     pizza.size = selected;
   } else {
-    pizza.price = 19.99
+    pizza.price = 19.99;
     pizza.size = selected;
   }
 };
@@ -49,12 +28,12 @@ pizzBtn.forEach((radioBtn) => {
 });
 //******************************************************************************************** */
 let crustBtn = document.querySelectorAll("input[name='pizzaCrust']");
-let price = pizza.price; 
+let price = pizza.price;
 let selectedCrust = "";
 let findSelectedCrust = () => {
   selected = document.querySelector("input[name=pizzaCrust]:checked").value;
-  if(selected == "Stuffed Crust"){
-    price = pizza.price + 2.99
+  if (selected == "Stuffed Crust") {
+    price = pizza.price + 2.99;
     pizza.crust = selected;
     pizza.price = price;
   }
@@ -82,49 +61,70 @@ sauceBtn.forEach((radioBtn) => {
 var ingElement = document.getElementById("ingredients");
 var checkBoxes = ingElement.querySelectorAll('input[type="checkbox"]');
 
-document.getElementById("cartButton").addEventListener("click", function(e) {
+document.getElementById("cartButton").addEventListener("click", function (e) {
   e.preventDefault(e);
   getData();
   addAnotherPizza();
-  console.log(pizza);
 });
 
-document.getElementById("goBack").addEventListener("click", function(e) {
+document.getElementById("goBack").addEventListener("click", function (e) {
   e.preventDefault();
 
-  window.location.replace("../index.html")
-})
+  window.location.replace("../index.html");
+});
 
 let result = [];
 
- function getData() {
-  
+function getData() {
   result = [];
   checkBoxes.forEach((item) => {
     if (item.checked) {
       let data = {
         item: item.value,
       };
-      pizza.ingredients.push(data)
+      pizza.ingredients.push(data);
     }
   });
 }
-
+let stillOrdering = true;
 function addAnotherPizza() {
-  let choice = window.confirm("Do you want to add another pizza")
-  
+  let choice = window.confirm("Do you want to add another pizza");
+  console.log("pizza", pizza);
+  stillOrdering = choice;
   if (choice) {
     document.querySelector("input[name=pizzaSize]:checked").checked = false;
     document.querySelector("input[name=pizzaCrust]:checked").checked = false;
-    document.querySelector("input[name=pizzaSauce]:checked").checked = false; 
+    document.querySelector("input[name=pizzaSauce]:checked").checked = false;
 
     var checkBoxes = ingElement.querySelectorAll('input[type="checkbox"]');
 
     checkBoxes.forEach((item) => {
       item.checked = false;
-    })
+    });
   } else {
-    window.location.replace("../checkout.html")
+    updateUserPizzaOrder();
   }
 }
 
+// function updateUserPizzaOrder() {
+//   fetch("http://localhost:3000/updateUserPizzaOrder", {
+//     method: "post",
+//     headers: { "Content-Type": "application/json" },
+//     body: JSON.stringify({
+//       userId: pizza.myUserId,
+//       price: pizza.price,
+//       sauce: pizza.sauce,
+//       ingredients: pizza.ingredients,
+//     }),
+//   })
+//     .then((res) => {
+//       if (res.ok) return res.json();
+//     })
+//     .then((response) => {
+//       checkout();
+//     });
+// }
+
+function checkout() {
+  window.location.replace("../checkout.html");
+}

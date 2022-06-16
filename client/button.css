@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.one {
+    display: flex;
+    border: solid;
+    border-radius: 43px;
+    align-items: center;
+    width: 43%;
+    margin-top: 15px;
+    border-color: red;
+    font-size: larger;
+}
+
+#ingredients{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    border: solid;
+    border-radius: 10px;
+    align-items: center;
+    width: 43%;
+    margin-top: 5px;
+    border-color: red;
+    font-size: x-large;
+   
+}
+
+.buttonDiv{
+    border: solid;
+    border-radius: 50%
+}
+
+#count{
+    padding: 0px 10px 0px 10px
+}
+
+#subtract, #quantity, #add{
+
+        width: 25px;
+        margin: 5px;
+        
+
+}
+
+#cartButton{
+    margin: 5px 0 0 5px;
+    height: 15vh;
+    width: 15vh;
+    border-radius: 71%;
+    background-color: rgb(148 233 17);
+    font-size: larger;
+    border: solid 3px
+}
+
+#cartBtnDiv{
+    margin-top: 1%;
+    height: 20%;
+}
+
+input[type="radio"] {
+    margin-left: 3%;
+}
+
+h1{
+    margin-top: 15px;
+}
+
+#mathDisplay{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: center;
+	align-content: stretch;
+}
+
+#price{
+    margin-left: 40px;
+}
