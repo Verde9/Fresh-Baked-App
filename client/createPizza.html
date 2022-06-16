@@ -4,29 +4,32 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- boostrap link -->
+
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
       crossorigin="anonymous"
     />
+
+    <!-- css link  -->
+
     <link rel="stylesheet" href="../style.css" />
     <title>Create Your Pizza</title>
   </head>
+
   <body id="create_pizza_body">
+    <!-- logo image -->
+
     <div id="card">
       <div id="pizza_creation_image">
         <img id="pizza_guy_2" src="../Images/pizza creation.svg" alt="pizza" />
       </div>
-      <!-- <h1>How many pizzas are we making?</h1>
-      <div id="quantity">
-        <button id="subtract" type="button" class="btn btn-outline-dark">
-          -
-        </button> -->
-      <!-- <input type="text" name="count" id="count"> -->
-      <!-- <p id="count">1</p>
-        <button id="add" type="button" class="btn btn-outline-dark">+</button>
-      </div> -->
+
+      <!-- select pizza size element   -->
+
       <h1>Select the size</h1>
       <div id="size">
         <div>
@@ -57,6 +60,9 @@
           <p>Large</p>
         </div>
       </div>
+
+      <!-- type of crust element -->
+
       <h1>Type of Crust</h1>
       <div id="crust">
         <div>
@@ -96,6 +102,9 @@
           </div>
         </div>
       </div>
+
+      <!-- type of sauce element -->
+
       <h1>Type of Sauce</h1>
       <div id="sauce">
         <div>
@@ -126,6 +135,9 @@
           <p>Barbeque Sauce</p>
         </div>
       </div>
+
+      <!-- toppings element -->
+
       <h1>Choose your toppings</h1>
       <div id="ingredients">
         <div class="item">
@@ -206,11 +218,17 @@
         <button id="cartButton" class="btn btn-dark">Add to cart</button>
       </div>
     </div>
+
+    <!-- boostrap script -->
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
       crossorigin="anonymous"
     ></script>
+
+    <!-- create your pizza script -->
+
     <script src="./createPizzaScript.js"></script>
   </body>
 </html>
