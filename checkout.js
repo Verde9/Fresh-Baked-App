@@ -1,5 +1,6 @@
 //checkoutjs
 //order number with its function
+
 console.log("order");
 
 const order = Math.floor(Math.random() * 10000000);
@@ -13,7 +14,11 @@ const editButton = document.getElementById("editOrder_btn");
 editButton.addEventListener("click", editOrder);
 
 const goBack = document.getElementById("goBack_btn");
-goBack.addEventListener("click", editOrder);
+goBack.addEventListener("click", function(e) {
+  e.preventDefault();
+
+  window.location.replace("./client/createPizza.html")
+})
 
 const orderBtn = document.getElementById("order_btn");
 orderBtn.addEventListener("click", orderPage);
