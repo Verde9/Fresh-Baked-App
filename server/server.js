@@ -11,8 +11,8 @@ const connectionString = process.env.baked;
 MongoClient.connect(connectionString, { useUnifiedTopology: true })
   .then((client) => {
     console.log("Baked and Connected to Database");
-    const db = client.db("star-wars-quotes");
-    const quotesCollection = db.collection("quotes");
+    const db = client.db("pizza-orders");
+    const pizzaCollection = db.collection("pizza");
 
     // ========================
     // Middlewares
@@ -26,20 +26,19 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     // Routes
     // ========================
     app.use(cors());
-    app.get("/user", (req, res) => {
-      db.collection("quotes")
-        .find()
+    app.post("/getOrder", (req, res) => {
+      console.log("body>>", req.body);
+      db.collection("pizza")
+        .find({ userId: req.body.userId })
         .toArray()
-        .then((quotes) => {
-          console.log("III", quotes);
-          res.send("arrived..........");
+        .then((pizza) => {
+          return res.send({ order: pizza });
         })
         .catch(/* ... */);
     });
 
     app.post("/createUser", (req, res) => {
-      req.body.orderNumber = Math.floor(Math.random() * 10000000);
-      quotesCollection
+      pizzaCollection
         .insertOne(req.body)
         .then((result) => {
           let userId = result.insertedId.toString();
@@ -48,26 +47,52 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         .catch((error) => console.error(error));
     });
 
-    app.put("/quotes", (req, res) => {
-      quotesCollection
-        .findOneAndUpdate(
-          { name: "Yoda" },
-          {
-            $set: {
-              name: req.body.name,
-              quote: req.body.quote,
-            },
-          },
-          {
-            upsert: true,
-          }
-        )
-        .then((result) => res.json("Success"))
+    app.post("/updateUserPizzaOrder", (req, res) => {
+      pizzaCollection
+        .insertOne({
+          userId: req.body.userId,
+          orderNumber: (req.body.orderNumber = Math.floor(
+            Math.random() * 10000000
+          )),
+          price: req.body.price,
+          sauce: req.body.sauce,
+          ingredients: req.body.ingredients,
+          orderNumber: req.body.orderNumber,
+        })
+        .then((result) => {
+          // let userId = result.insertedId.toString();
+          return res.send({ message: "Pizza in the oven...." });
+        })
         .catch((error) => console.error(error));
     });
 
-    app.delete("/quotes", (req, res) => {
-      quotesCollection
+    // app.put("/updateUserPizzaOrder", (req, res) => {
+    //   req.body.orderNumber = Math.floor(Math.random() * 10000000);
+    //   console.log("update body: ", req.body);
+    //   pizzaCollection
+    //     .findOneAndUpdate(
+    //       { _id: req.body.myUserId },
+    //       {
+    //         $set: {
+    //           name: req.body.name,
+    //           quote: req.body.quote,
+    //           userId: req.body.userId,
+    //           price: req.body.price,
+    //           sauce: req.body.sauce,
+    //           ingredients: req.body.ingredients,
+    //           orderNumber: req.body.orderNumber,
+    //         },
+    //       },
+    //       {
+    //         upsert: true,
+    //       }
+    //     )
+    //     .then((result) => res.json("Success"))
+    //     .catch((error) => console.error(error));
+    // });
+
+    app.delete("/pizza", (req, res) => {
+      pizzaCollection
         .deleteOne({ name: req.body.name })
         .then((result) => {
           if (result.deletedCount === 0) {

@@ -1,8 +1,23 @@
 //checkoutjs
 //order number with its function
-
-console.log("order");
-
+getOrder();
+var pizzaObj = {};
+function getOrder() {
+  fetch("http://localhost:3000/getOrder", {
+    method: "post",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      userId: sessionStorage.getItem("userId"),
+    }),
+  })
+    .then((res) => {
+      if (res.ok) return res.json();
+    })
+    .then((response) => {
+      pizzaObj.pizza = response;
+    });
+}
+console.log("pizzaObj", pizzaObj);
 const order = Math.floor(Math.random() * 10000000);
 
 const orderNumberPara = document.getElementById("on");
@@ -14,11 +29,11 @@ const editButton = document.getElementById("editOrder_btn");
 editButton.addEventListener("click", editOrder);
 
 const goBack = document.getElementById("goBack_btn");
-goBack.addEventListener("click", function(e) {
+goBack.addEventListener("click", function (e) {
   e.preventDefault();
 
-  window.location.replace("./client/createPizza.html")
-})
+  window.location.replace("./client/createPizza.html");
+});
 
 const orderBtn = document.getElementById("order_btn");
 orderBtn.addEventListener("click", orderPage);

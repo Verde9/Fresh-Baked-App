@@ -1,36 +1,10 @@
 let count = 1;
-// localStorage.clear();
-// sessionStorage.clear();
-let myUserId = sessionStorage.getItem("userId");
-console.log("local: ", localStorage.getItem("userId"));
-console.log("session: ", sessionStorage.getItem("userId"));
+
 let pizza = {
   myUserId: sessionStorage.getItem("userId"),
   ingredients: [],
 };
-// let displayCount = document.getElementById("count");
-// let subtract = document
-//   .getElementById("subtract")
-//   .addEventListener("click", handleSubtract);
-
-// document.getElementById("add").addEventListener("click", handleAdd);
-
-// function handleSubtract() {
-//   if (count < 1) return;
-//   count = count -= 1;
-//   handleCount();
-// }
-
-// function handleAdd() {
-//   count = count += 1;
-//   handleCount();
-//   pizza.price = price * count
-// }
-
-// function handleCount() {
-//   displayCount.innerText = count;
-//   pizza.count = count;
-// }
+pizza.myUserId = sessionStorage.getItem("userId");
 
 let pizzBtn = document.querySelectorAll("input[name='pizzaSize']");
 
@@ -91,7 +65,6 @@ document.getElementById("cartButton").addEventListener("click", function (e) {
   e.preventDefault(e);
   getData();
   addAnotherPizza();
-  console.log(pizza);
 });
 
 document.getElementById("goBack").addEventListener("click", function (e) {
@@ -128,6 +101,29 @@ function addAnotherPizza() {
       item.checked = false;
     });
   } else {
-    window.location.replace("../checkout.html");
+    updateUserPizzaOrder();
   }
+}
+
+function updateUserPizzaOrder() {
+  fetch("http://localhost:3000/updateUserPizzaOrder", {
+    method: "post",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      userId: pizza.myUserId,
+      price: pizza.price,
+      sauce: pizza.sauce,
+      ingredients: pizza.ingredients,
+    }),
+  })
+    .then((res) => {
+      if (res.ok) return res.json();
+    })
+    .then((response) => {
+      checkout();
+    });
+}
+
+function checkout() {
+  window.location.replace("../checkout.html");
 }
