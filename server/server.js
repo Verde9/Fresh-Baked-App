@@ -1,15 +1,16 @@
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const MongoClient = require("mongodb").MongoClient;
 const app = express();
 const cors = require("cors");
 // MongoDB connection
-const connectionString =
-  "mongodb+srv://joey:SeattleSeabee%4021@cluster0.i8qricq.mongodb.net/?retryWrites=true&w=majority";
+const connectionString = process.env.baked;
+// "mongodb+srv://joey:SeattleSeabee%4021@cluster0.i8qricq.mongodb.net/?retryWrites=true&w=majority";
 
 MongoClient.connect(connectionString, { useUnifiedTopology: true })
   .then((client) => {
-    console.log("Connected to Database");
+    console.log("Baked and Connected to Database");
     const db = client.db("star-wars-quotes");
     const quotesCollection = db.collection("quotes");
 
@@ -36,13 +37,13 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         .catch(/* ... */);
     });
 
-    app.post("/quotes", (req, res) => {
-      console.log("/qoutes post", req.body);
+    app.post("/createUser", (req, res) => {
+      req.body.orderNumber = Math.floor(Math.random() * 10000000);
       quotesCollection
         .insertOne(req.body)
         .then((result) => {
-          console.log("..dfadsf", result);
-          res.send("/");
+          let userId = result.insertedId.toString();
+          return res.send({ id: userId });
         })
         .catch((error) => console.error(error));
     });
