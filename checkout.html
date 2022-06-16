@@ -5,58 +5,88 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Checkout</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./style.css" />
   </head>
-  <body>
+  <body id="checkout_body">
     <div>
       <p id="on"></p>
       <button id="editOrder_btn">Edit Order</button>
     </div>
-    <section>
-      <main>
-        <h1>Contact and Delivery Information</h1>
-      </main>
+    <section id="form-element">
+      <h4 id="contact_info_label">Contact and Delivery Information</h4>
       <div>
         <section>
           <form id="userInformation">
-            <h4>Adress:</h4>
+            <p>Delivery Address</p>
+            <p></p>
             <div>
               <input
                 type="text"
                 name=""
-                id="Adress1"
-                placeholder="building/house number, street name, apatment number and city"
+                id="Address1"
+                placeholder="building/house number, street name, and apatment number"
+                class="form-control"
                 required
-              /><br />
-              <input
-                type="text"
-                name=""
-                id="Adress2"
-                placeholder="city, state and zip code"
               />
+              <div id="csz">
+                <input
+                  type="text"
+                  name=""
+                  id="city"
+                  placeholder="city"
+                  class="form-control"
+                />
+                <input
+                  type="state"
+                  name=""
+                  id="state"
+                  placeholder="state"
+                  class="form-control"
+                />
+                <input
+                  type="zipcode"
+                  name=""
+                  id="zipcode"
+                  placeholder="zip code"
+                  class="form-control"
+                />
+              </div>
             </div>
-            <h4>Names:</h4>
+            <p>Name</p>
             <input
               type="text"
               name=""
               id="Name"
               placeholder="Enter your name"
+              class="form-control"
               required
             />
-            <h4>Phone Number:</h4>
-            <input
-              type="tel"
-              name=""
-              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-              id="phoneNumber"
-              placeholder="Enter your phone number"
-              required
-            />
-            <h4>Email:</h4>
+            <p>Phone Number</p>
+            <p>
+              <input
+                type="tel"
+                name=""
+                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                id="phoneNumber"
+                placeholder="Enter your phone number"
+                class="form-control"
+                required
+              />
+            </p>
+
+            <p>Email</p>
             <input
               type="email"
               name=""
               id="Email"
               placeholder="Enter your email adress"
+              class="form-control"
             />
           </form>
         </section>
@@ -64,50 +94,74 @@
       <div>
         <section>
           <main>
-            <h1>Payment Information</h1>
+            <h4 id="pay_label">Payment Information</h4>
           </main>
           <form id="paymentInformation">
-            <h4>Card Number:</h4>
+            <p>Card Number</p>
             <input
               type="text"
               name=""
               id="cardNumber"
               placeholder="Enter Card Number"
               pattern="[0-9\s]{13, 19}"
+              class="form-control"
               required
             />
-            <h4>Card Name:</h4>
+            <p>Card Name</p>
             <input
               type="text"
               name=""
               id="cardName"
               placeholder="Enter Card Name"
+              class="form-control"
               required
             />
-            <h4>Exp. Date</h4>
-            <input id="expdate" type="date" required />
-            <h4>CVV Code:</h4>
+
+            <p>Exp. Date</p>
+            <div>
+              <select name="expireMM" id="expireMM">
+                <option value="">Month</option>
+                <option value="01">January</option>
+                <option value="02">February</option>
+                <option value="03">March</option>
+                <option value="04">April</option>
+                <option value="05">May</option>
+                <option value="06">June</option>
+                <option value="07">July</option>
+                <option value="08">August</option>
+                <option value="09">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+              </select>
+              <select name="expireYY" id="expireYY">
+                <option value="">Year</option>
+                <option value="22">2022</option>
+                <option value="23">2023</option>
+                <option value="24">2024</option>
+              </select>
+            </div>
+            <p>cvc</p>
             <input
               type="numerical"
               name=""
               id="C_V_V"
               maxlength="4"
               pattern="[0-9]*"
-              placeholder="CVV Code"
+              placeholder="cvc"
+              class="form-control"
               required
             />
           </form>
         </section>
       </div>
       <div id="totalPrice">
-        <h4>Delivery Fee:</h4>
-        <input type="numerical" id="Delivery_Fee" value="" readonly />
-        <h4>Total:</h4>
-        <input type="numerical" id="totall" value="" readonly />
+        <p>Delivery Fee:</p>
+        <p>Total:</p>
       </div>
       <div id="checkoutBtn">
-        <button id="goBack_btn">Go Back</button>
-        <button id="order_btn">Order</button>
+        <button id="goBack_btn" class="btn btn-dark">Go Back</button>
+        <button id="order_btn" class="btn btn-dark">Order</button>
       </div>
     </section>
     <script src="./checkout.js" type="module"></script>

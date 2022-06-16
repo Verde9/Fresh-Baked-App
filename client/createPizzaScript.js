@@ -1,39 +1,47 @@
 let count = 1;
+
 let pizza = {
   ingredients: [],
 };
-let displayCount = document.getElementById("count");
-displayCount.innerText = count;
-let subtract = document
-  .getElementById("subtract")
-  .addEventListener("click", handleSubtract);
+// let displayCount = document.getElementById("count");
+// let subtract = document
+//   .getElementById("subtract")
+//   .addEventListener("click", handleSubtract);
 
-document.getElementById("add").addEventListener("click", handleAdd);
+// document.getElementById("add").addEventListener("click", handleAdd);
 
-function handleSubtract() {
-  if (count < 1) return;
-  count = count -= 1;
-  handleCount(count);
-  handlePrice(count);
-}
+// function handleSubtract() {
+//   if (count < 1) return;
+//   count = count -= 1;
+//   handleCount();
+// }
 
-function handleAdd() {
-  count = count += 1;
-  handleCount(count);
-  handlePrice(count);
-}
+// function handleAdd() {
+//   count = count += 1;
+//   handleCount();
+//   pizza.price = price * count
+// }
 
-function handleCount(myCount) {
-  displayCount.innerText = myCount;
-  pizza.count = count;
-}
+// function handleCount() {
+//   displayCount.innerText = count;
+//   pizza.count = count;
+// }
 
 let pizzBtn = document.querySelectorAll("input[name='pizzaSize']");
 
 let selected = "";
 let findSelected = () => {
   selected = document.querySelector("input[name=pizzaSize]:checked").value;
-  pizza.size = selected;
+  if (selected == "Small") {
+    pizza.price = 12.99;
+    pizza.size = selected;
+  } else if (selected == "Medium") {
+    pizza.price = 15.99;
+    pizza.size = selected;
+  } else {
+    pizza.price = 19.99;
+    pizza.size = selected;
+  }
 };
 
 pizzBtn.forEach((radioBtn) => {
@@ -41,11 +49,15 @@ pizzBtn.forEach((radioBtn) => {
 });
 //******************************************************************************************** */
 let crustBtn = document.querySelectorAll("input[name='pizzaCrust']");
-
+let price = pizza.price;
 let selectedCrust = "";
 let findSelectedCrust = () => {
   selected = document.querySelector("input[name=pizzaCrust]:checked").value;
-  pizza.crust = selected;
+  if (selected == "Stuffed Crust") {
+    price = pizza.price + 2.99;
+    pizza.crust = selected;
+    pizza.price = price;
+  }
 };
 
 crustBtn.forEach((radioBtn) => {
@@ -69,7 +81,13 @@ sauceBtn.forEach((radioBtn) => {
 
 var ingElement = document.getElementById("ingredients");
 var checkBoxes = ingElement.querySelectorAll('input[type="checkbox"]');
-document.getElementById("cartButton").addEventListener("click", getData);
+
+document.getElementById("cartButton").addEventListener("click", function (e) {
+  e.preventDefault(e);
+  getData();
+  addAnotherPizza();
+  console.log(pizza);
+});
 
 document.getElementById("goBack").addEventListener("click", function (e) {
   e.preventDefault();
@@ -91,10 +109,20 @@ function getData() {
   });
 }
 
-const price = 9.98;
-let pizzaPrice = document.getElementById("price");
+function addAnotherPizza() {
+  let choice = window.confirm("Do you want to add another pizza");
 
-function handlePrice(cnt) {
-  let myPrice = cnt * price;
-  pizzaPrice.innerText = myPrice.toFixed(2);
+  if (choice) {
+    document.querySelector("input[name=pizzaSize]:checked").checked = false;
+    document.querySelector("input[name=pizzaCrust]:checked").checked = false;
+    document.querySelector("input[name=pizzaSauce]:checked").checked = false;
+
+    var checkBoxes = ingElement.querySelectorAll('input[type="checkbox"]');
+
+    checkBoxes.forEach((item) => {
+      item.checked = false;
+    });
+  } else {
+    window.location.replace("../checkout.html");
+  }
 }
