@@ -273,3 +273,46 @@ label {
         opacity: 1;
     }
 }
+
+@media (max-width: 833px) {
+
+#pizza_creation_button {
+        margin-top: 100px;
+        font-size: medium;
+        font-family: myFirstFont;
+        height: auto;
+        width: 70%;
+        bottom: 60vh;
+        
+}
+
+#pizza_guy {
+    padding-top: 20vh;
+    height: auto;
+    width: 100%;
+    animation: blink 2s;
+    animation-iteration-count: infinite;
+}
+
+#pizza_guy_2{
+    height: auto;
+    width: 70%;
+    animation: blink 0.3s;
+    animation-iteration-count: 3;
+}
+
+#hello_div{
+    display: flex;
+    white-space: nowrap;
+    width: 100;
+    animation: slide 60s linear infinite;
+    font-size: 30px;
+} 
+
+#goBack{
+    margin-right: 30px;
+    margin-bottom: 25px;
+    height: 40%;
+    width: 30%;
+}
+}
