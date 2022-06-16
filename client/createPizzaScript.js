@@ -106,24 +106,24 @@ function addAnotherPizza() {
   }
 }
 
-// function updateUserPizzaOrder() {
-//   fetch("http://localhost:3000/updateUserPizzaOrder", {
-//     method: "post",
-//     headers: { "Content-Type": "application/json" },
-//     body: JSON.stringify({
-//       userId: pizza.myUserId,
-//       price: pizza.price,
-//       sauce: pizza.sauce,
-//       ingredients: pizza.ingredients,
-//     }),
-//   })
-//     .then((res) => {
-//       if (res.ok) return res.json();
-//     })
-//     .then((response) => {
-//       checkout();
-//     });
-// }
+function updateUserPizzaOrder() {
+  fetch("http://localhost:3000/updateUserPizzaOrder", {
+    method: "post",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      userId: pizza.myUserId,
+      price: pizza.price,
+      sauce: pizza.sauce,
+      ingredients: pizza.ingredients,
+    }),
+  })
+    .then((res) => {
+      if (res.ok) return res.json();
+    })
+    .then((response) => {
+      checkout();
+    });
+}
 
 function checkout() {
   window.location.replace("../checkout.html");
