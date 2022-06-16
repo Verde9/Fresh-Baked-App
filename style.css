@@ -273,6 +273,57 @@ label {
         opacity: 1;
     }
 }
+/* checkout page css */
+#container{
+    position: relative;
+    top: 500px;
+}
+#title_bar{
+    text-align: center;
+    position: relative;
+    top: -50px;
+}
+#top_ban{
+    text-align: center;
+}
+.progress{
+    height: 6vh;
+    position: relative;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+#text{
+    font-weight: 50;
+    font-size: x-large;
+    position: relative;
+    top: 10px;
+}
+/* input field read only for checkout */
+#deliveryFee{
+    position: relative;
+    width: 50px;
+    background-color: #F8ECD1;
+    border-color: #F8ECD1;
+    left: 220px;
+    top: -45px;
+}
+#totalAmount{
+    position: relative;
+    width: 100px;
+    background-color: #F8ECD1;
+    border-color: #F8ECD1;
+    left: 100px;
+    top: -45px;
+}
+/* contact page media query */
+@media (min-width: 375px) and (max-width: 1263px){
+
+    #csz{
+        display: flex;
+        flex-direction: column;
+    
+    }
+}
 
 @media (max-width: 833px) {
 

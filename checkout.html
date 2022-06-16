@@ -5,19 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Checkout</title>
+    <!-- bootstarp link -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
       crossorigin="anonymous"
     />
+    <!-- css link  -->
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body id="checkout_body">
     <div>
+      <!-- p tag with an id of on to dynamically insert the order number -->
       <p id="on"></p>
+      <!-- edit order wich it would bring back to the page of pizza creation -->
       <button id="editOrder_btn">Edit Order</button>
     </div>
+    <!-- form start for contact delivery ifo and payment info divided into 2 sections -->
     <section id="form-element">
       <h4 id="contact_info_label">Contact and Delivery Information</h4>
       <div>
@@ -155,15 +160,20 @@
           </form>
         </section>
       </div>
-      <div id="totalPrice">
+      <!-- delivery fee and Total input read only itg would be get from data base -->
+      <div>
         <p>Delivery Fee:</p>
+        <input id="deliveryFee" type="text" value="5%" readonly />
         <p>Total:</p>
+        <input id="totalAmount" type="text" readonly />
       </div>
+      <!-- botton to go back to previus page in wich you can create pizza and nect page wich complete your order -->
       <div id="checkoutBtn">
         <button id="goBack_btn" class="btn btn-dark">Go Back</button>
         <button id="order_btn" class="btn btn-dark">Order</button>
       </div>
     </section>
+    <!-- script link for the js file for check out -->
     <script src="./checkout.js" type="module"></script>
   </body>
 </html>
