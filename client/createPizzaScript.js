@@ -1,6 +1,11 @@
 let count = 1;
-
+// localStorage.clear();
+// sessionStorage.clear();
+let myUserId = sessionStorage.getItem("userId");
+console.log("local: ", localStorage.getItem("userId"));
+console.log("session: ", sessionStorage.getItem("userId"));
 let pizza = {
+  myUserId: sessionStorage.getItem("userId"),
   ingredients: [],
 };
 // let displayCount = document.getElementById("count");
