@@ -38,7 +38,6 @@ async function getOrder() {
     // }
 }
 
-console.log("pizzaObj", pizzaObj);
 //No longer need it since we bringing order number from the server
 //const order = Math.floor(Math.random() * 10000000);
 //storing the Html p tag into a variable using its ID
@@ -46,7 +45,6 @@ const orderNumberPara = document.getElementById("on");
 
 //inner text into the p tag wich it would dynamically display order number
 
->>>>>>> main
 //go back button calling its function
 const goBack = document.getElementById("goBack_btn");
 goBack.addEventListener("click", function (e) {
@@ -62,5 +60,5 @@ orderBtn.addEventListener("click", orderPage);
 
 //function utilize for order"it will take yout to the next page"
 function orderPage() {
-  window.location.href = "./tracker.html";
+  window.location.replace("./tracker.html");
 }

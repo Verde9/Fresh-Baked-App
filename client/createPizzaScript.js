@@ -34,7 +34,7 @@ let selectedCrust = "";
 let findSelectedCrust = () => {
   selected = document.querySelector("input[name=pizzaCrust]:checked").value;
   if (selected == "Stuffed Crust") {
-    price = pizza.price + 2.99;
+    price = Math.round(pizza.price + 2.99);
     pizza.crust = selected;
     pizza.price = price;
   }

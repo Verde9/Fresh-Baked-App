@@ -5,9 +5,7 @@ let words = ["Preparing", "Oven", "Ready"];
 let width = 1;
 let i = 0;
 
-//havee to bring value of the order number from database
-document.getElementById("h1_order").innerText = "Number: ";
-console.log("hola");
+
 //^----order number
 //moveBar fuction is called
 moveBar();
@@ -18,7 +16,7 @@ function moveBar() {
   if (i == 0) {
     i = 1;
     const elem = bar;
-    const timeout = setInterval(frame, 1000);
+    const timeout = setInterval(frame, 100);
 
     function frame() {
       if (width >= 100) {
