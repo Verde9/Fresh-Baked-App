@@ -65,7 +65,7 @@ var checkBoxes = ingElement.querySelectorAll('input[type="checkbox"]');
 document.getElementById("cartButton").addEventListener("click", function (e) {
   e.preventDefault(e);
   getData();
-  updateUserPizzaOrder();
+  updateUserPizzaOrder()
 });
 
 let result = [];
