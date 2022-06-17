@@ -42,15 +42,24 @@
           <p>Small</p>
         </div>
         <div class="one">
-          <input type="radio" name="pizzaSize" value="Medium" />
+          <input
+            class="form-check-input"
+            type="radio"
+            name="pizzaSize"
+            value="Medium"
+          />
           <p>Medium</p>
         </div>
         <div class="one">
-          <input type="radio" name="pizzaSize" value="Large" />
+          <input
+            class="form-check-input"
+            type="radio"
+            name="pizzaSize"
+            value="Large"
+          />
           <p>Large</p>
         </div>
       </div>
-
 
       <!-- type of crust element -->
 
@@ -58,7 +67,12 @@
 
       <div id="crust">
         <div class="one">
-          <input type="radio" name="pizzaCrust" value="Hand Tossed" />
+          <input
+            class="form-check-input"
+            type="radio"
+            name="pizzaCrust"
+            value="Hand Tossed"
+          />
           <p>Hand Tossed</p>
         </div>
         <div>
@@ -90,18 +104,27 @@
         </div>
       </div>
 
-
       <!-- type of sauce element -->
 
       <h1>Type of Sauce</h1>
 
       <div id="sauce">
         <div class="one">
-          <input type="radio" name="pizzaSauce" value="red sauce" />
+          <input
+            class="form-check-input"
+            type="radio"
+            name="pizzaSauce"
+            value="red sauce"
+          />
           <p>Red Sauce</p>
         </div>
         <div class="one">
-          <input type="radio" name="pizzaSauce" value="white sauce" />
+          <input
+            class="form-check-input"
+            type="radio"
+            name="pizzaSauce"
+            value="white sauce"
+          />
           <p>White Sauce</p>
         </div>
         <div>
@@ -115,15 +138,19 @@
         </div>
       </div>
 
-
       <!-- toppings element -->
 
       <h1>Choose your toppings</h1>
 
       <div id="ingredients">
         <div class="item">
-          <input id="steak" type="checkbox" value="Steak" />
           <label for="steak">Steak</label>
+          <input
+            class="form-check-input"
+            id="steak"
+            type="checkbox"
+            value="Steak"
+          />
         </div>
         <div class="item">
           <label for="sauage">Sausage</label>
@@ -135,32 +162,58 @@
           />
         </div>
         <div class="item">
-          <input id="mushrooms" type="checkbox" value="Mushrooms" />
           <label for="mushrooms">Mushrooms</label>
-        </div>
-        <div class="item">
-          <input id="black Olives" type="checkbox" value="Black_Olives" />
-          <label for="black Olives">Black Olives</label>
-        </div>
-        <div class="item">
-          <input id="pineapple" type="checkbox" value="Pineapple" />
-          <label for="pineapple">Pineapple</label>
-        </div>
-        <div class="item">
-          <input id="grond beef" type="checkbox" value="Ground_Beef" />
-          <label for="grond beef">Ground Beef</label>
-        </div>
-        <div class="item">
-          <input id="tomatoes" type="checkbox" value="Tomatoes" />
-          <label for="tomatoes">Tomatoes</label>
-        </div>
-        <div class="item">
           <input
+            class="form-check-input"
+            id="mushrooms"
+            type="checkbox"
+            value="Mushrooms"
+          />
+        </div>
+        <div class="item">
+          <label for="black Olives">Black Olives</label>
+          <input
+            class="form-check-input"
+            id="black Olives"
+            type="checkbox"
+            value="Black_Olives"
+          />
+        </div>
+        <div class="item">
+          <label for="pineapple">Pineapple</label>
+          <input
+            class="form-check-input"
+            id="pineapple"
+            type="checkbox"
+            value="Pineapple"
+          />
+        </div>
+        <div class="item">
+          <label for="grond beef">Ground Beef</label>
+          <input
+            class="form-check-input"
+            id="grond beef"
+            type="checkbox"
+            value="Ground_Beef"
+          />
+        </div>
+        <div class="item">
+          <label for="tomatoes">Tomatoes</label>
+          <input
+            class="form-check-input"
+            id="tomatoes"
+            type="checkbox"
+            value="Tomatoes"
+          />
+        </div>
+        <div class="item">
+          <label for="jalapeno peppers">Jalapeno Peppers</label>
+          <input
+            class="form-check-input"
             id="jalapeno peppers"
             type="checkbox"
             value="Jalapeno_Peppers"
           />
-          <label for="jalapeno peppers">Jalapeno Peppers</label>
         </div>
         <div class="item">
           <label for="pineapples">Pineapples</label>
@@ -200,8 +253,7 @@
         </div>
       </div>
     </div>
-    <div>
-      <button id="goBack" class="btn btn-dark">Go Back</button>
+    <div id="cartButtonDiv">
       <button id="cartButton" class="btn btn-dark">Add to cart</button>
     </div>
 
@@ -215,8 +267,6 @@
 
     <script src="./createPizzaScript.js" type="module"></script>
 
-
     <!-- create your pizza script -->
-
   </body>
 </html>

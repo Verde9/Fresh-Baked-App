@@ -1,33 +1,53 @@
 //checkoutjs
 //order number with its function
 
-getOrder();
-var pizzaObj = {};
-function getOrder() {
-  fetch("http://localhost:3000/getOrder", {
+
+getOrder()
+async function getOrder() {
+  let order = await fetch("http://localhost:3000/getOrder", {
     method: "post",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       userId: sessionStorage.getItem("userId"),
     }),
   })
-    .then((res) => {
-      if (res.ok) return res.json();
-    })
-    .then((response) => {
-      pizzaObj.pizza = response;
-    });
-}
-console.log("pizzaObj", pizzaObj);
+    let order2 = await order.json();
 
-const order = Math.floor(Math.random() * 10000000);
+    let ingredientsArray = []
+    let noDuplicates = [...new Set(ingredientsArray)]
+
+
+    function ingredients() {
+      order2.order[0].ingredients.forEach(ingredient => {
+          ingredientsArray.push(ingredient.item)
+      });
+    }
+    ingredients()
+    const orderNumberPara = document.getElementById("on");
+    const ingredientsDiv = document.getElementsByClassName("ingredients")
+
+    orderNumberPara.innerText = `
+    Order Number: ${order2.order[0].orderNumber}
+    Price: $${order2.order[0].price}
+    Pizza Sauce: ${order2.order[0].sauce}
+    Pizza Ingredients: ${ingredientsArray}
+    `
+    // for (let index = 0; index < order2.order[0].ingredients.length; index++) {
+    //   ingredientsDiv[index].innerText = `${order2.order[0].ingredients[index].item}`
+    //   console.log(order2.order[0].ingredients[index].item)
+    // }
+}
+// console.log("pizzaObj", pizzaObj);
+
+// const order = pizzaObj.pizza.order[0].orderNumber
 //storing the Html p tag into a variable using its ID
-const orderNumberPara = document.getElementById("on");
+// const orderNumberPara = document.getElementById("on");
 //inner text into the p tag wich it would dynamically display order number
-orderNumberPara.innerText = "Order: " + order;
+
+// orderNumberPara.innerText = "Order Number: " + order;
 //editOrder BTN calling its fuction
-const editButton = document.getElementById("editOrder_btn");
-editButton.addEventListener("click", editOrder);
+// const editButton = document.getElementById("editOrder_btn");
+// editButton.addEventListener("click", editOrder);
 //go back button calling its function
 const goBack = document.getElementById("goBack_btn");
 goBack.addEventListener("click", function (e) {

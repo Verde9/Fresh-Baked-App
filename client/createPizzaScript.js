@@ -29,6 +29,7 @@ pizzBtn.forEach((radioBtn) => {
 //******************************************************************************************** */
 let crustBtn = document.querySelectorAll("input[name='pizzaCrust']");
 let price = pizza.price;
+let size = pizza.size;
 let selectedCrust = "";
 let findSelectedCrust = () => {
   selected = document.querySelector("input[name=pizzaCrust]:checked").value;
@@ -64,13 +65,7 @@ var checkBoxes = ingElement.querySelectorAll('input[type="checkbox"]');
 document.getElementById("cartButton").addEventListener("click", function (e) {
   e.preventDefault(e);
   getData();
-  addAnotherPizza();
-});
-
-document.getElementById("goBack").addEventListener("click", function (e) {
-  e.preventDefault();
-
-  window.location.replace("../index.html");
+  updateUserPizzaOrder();
 });
 
 let result = [];
@@ -86,45 +81,29 @@ function getData() {
     }
   });
 }
-let stillOrdering = true;
-function addAnotherPizza() {
-  let choice = window.confirm("Do you want to add another pizza");
-  console.log("pizza", pizza);
-  stillOrdering = choice;
-  if (choice) {
-    document.querySelector("input[name=pizzaSize]:checked").checked = false;
-    document.querySelector("input[name=pizzaCrust]:checked").checked = false;
-    document.querySelector("input[name=pizzaSauce]:checked").checked = false;
 
-    var checkBoxes = ingElement.querySelectorAll('input[type="checkbox"]');
-
-    checkBoxes.forEach((item) => {
-      item.checked = false;
+function updateUserPizzaOrder() {
+  fetch("http://localhost:3000/updateUserPizzaOrder", {
+    method: "post",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      userId: pizza.myUserId,
+      price: pizza.price,
+      size: pizza.size,
+      sauce: pizza.sauce,
+      ingredients: pizza.ingredients,
+    }),
+  })
+    .then((res) => {
+      if (res.ok) return res.json();
+    })
+    .then((response) => {
+      checkout();
     });
-  } else {
-    updateUserPizzaOrder();
-  }
 }
-
-// function updateUserPizzaOrder() {
-//   fetch("http://localhost:3000/updateUserPizzaOrder", {
-//     method: "post",
-//     headers: { "Content-Type": "application/json" },
-//     body: JSON.stringify({
-//       userId: pizza.myUserId,
-//       price: pizza.price,
-//       sauce: pizza.sauce,
-//       ingredients: pizza.ingredients,
-//     }),
-//   })
-//     .then((res) => {
-//       if (res.ok) return res.json();
-//     })
-//     .then((response) => {
-//       checkout();
-//     });
-// }
 
 function checkout() {
   window.location.replace("../checkout.html");
 }
+
+
