@@ -65,6 +65,7 @@ document.getElementById("cartButton").addEventListener("click", function (e) {
   e.preventDefault(e);
   getData();
   addAnotherPizza();
+  checkout();
 });
 
 document.getElementById("goBack").addEventListener("click", function (e) {
