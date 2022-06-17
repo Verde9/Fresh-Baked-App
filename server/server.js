@@ -4,9 +4,8 @@ const bodyParser = require("body-parser");
 const MongoClient = require("mongodb").MongoClient;
 const app = express();
 const cors = require("cors");
-// MongoDB connection
+
 const connectionString = process.env.baked;
-// "mongodb+srv://joey:SeattleSeabee%4021@cluster0.i8qricq.mongodb.net/?retryWrites=true&w=majority";
 
 MongoClient.connect(connectionString, { useUnifiedTopology: true })
   .then((client) => {
@@ -14,17 +13,9 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     const db = client.db("pizza-orders");
     const pizzaCollection = db.collection("pizza");
 
-    // ========================
-    // Middlewares
-    // ========================
-    // app.set("view engine", "ejs");
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
-    // app.use(express.static("public"));
 
-    // ========================
-    // Routes
-    // ========================
     app.use(cors());
     app.post("/getOrder", (req, res) => {
       console.log("body>>", req.body);
@@ -60,36 +51,10 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
           orderNumber: req.body.orderNumber,
         })
         .then((result) => {
-          // let userId = result.insertedId.toString();
           return res.send({ message: "Pizza in the oven...." });
         })
         .catch((error) => console.error(error));
     });
-
-    // app.put("/updateUserPizzaOrder", (req, res) => {
-    //   req.body.orderNumber = Math.floor(Math.random() * 10000000);
-    //   console.log("update body: ", req.body);
-    //   pizzaCollection
-    //     .findOneAndUpdate(
-    //       { _id: req.body.myUserId },
-    //       {
-    //         $set: {
-    //           name: req.body.name,
-    //           quote: req.body.quote,
-    //           userId: req.body.userId,
-    //           price: req.body.price,
-    //           sauce: req.body.sauce,
-    //           ingredients: req.body.ingredients,
-    //           orderNumber: req.body.orderNumber,
-    //         },
-    //       },
-    //       {
-    //         upsert: true,
-    //       }
-    //     )
-    //     .then((result) => res.json("Success"))
-    //     .catch((error) => console.error(error));
-    // });
 
     app.delete("/pizza", (req, res) => {
       pizzaCollection
@@ -103,11 +68,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         .catch((error) => console.error(error));
     });
 
-    // ========================
-    // Listen
-    // ========================
-    const isProduction = process.env.NODE_ENV === "production";
-    const port = isProduction ? 7500 : 3000;
+    const port = 3000;
     app.listen(port, function () {
       console.log(`listening on ${port}`);
     });
